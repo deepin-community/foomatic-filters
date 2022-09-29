@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+derives_from_ubuntu := $(shell (dpkg-vendor --derives-from Ubuntu && echo "yes") || echo "no")
+
+# hardening
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND =  -Wl,--allow-multiple-definition
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- --disable-file-converter-check
+
+override_dh_auto_build:
+	dh_auto_build
+	chmod -x filter.conf
+
+override_dh_install-arch:
+	dh_install
+
+	rm -f $(CURDIR)/debian/foomatic-filters/usr/lib/cups/filter/foomatic-rip
+	cp -p $(CURDIR)/debian/foomatic-filters/usr/bin/foomatic-rip $(CURDIR)/debian/foomatic-filters/usr/lib/cups/filter/foomatic-rip
+	rm -f $(CURDIR)/debian/foomatic-filters/usr/lib/ppr/interfaces/foomatic-rip
+	rm -f $(CURDIR)/debian/foomatic-filters/usr/lib/ppr/lib/foomatic-rip
+	cp -p $(CURDIR)/debian/foomatic-filters/usr/bin/foomatic-rip $(CURDIR)/debian/foomatic-filters/usr/lib/ppr/interfaces/foomatic-rip
+	cp -p $(CURDIR)/debian/foomatic-filters/usr/bin/foomatic-rip $(CURDIR)/debian/foomatic-filters/usr/lib/ppr/lib/foomatic-rip
+
+	rm -f $(CURDIR)/debian/foomatic-filters/etc/foomatic/filter.conf*
+	cp -p $(CURDIR)/debian/parseconfig.pl $(CURDIR)/debian/foomatic-filters/usr/share/foomatic
+	chmod +x $(CURDIR)/debian/foomatic-filters/usr/share/foomatic/parseconfig.pl
+	# Install the apport hook on Ubuntu and derivatives
+ifeq ($(derives_from_ubuntu),yes)
+	install -D -m 644 debian/ubuntu/apport-hook.py $(CURDIR)/debian/foomatic-filters/usr/share/apport/package-hooks/source_foomatic-filters.py
+endif
+
+override_dh_install-indep:
+	dh_install
+
+override_dh_clean:
+	dh_clean
+	# Update the translations (ensures no outdated file is left behind)
+	debconf-updatepo
+
+override_dh_perl:
+	# Perl scripts from this package don't use any perl modules, so call dh_perl with "-d" to avoid the unnecessary perl dependency
+	dh_perl -d

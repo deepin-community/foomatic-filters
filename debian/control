@@ -1,0 +1,58 @@
+Source: foomatic-filters
+Section: text
+Priority: optional
+Maintainer: Jörg Frings-Fürst <debian@jff.email>
+Build-Depends:
+ autoconf,
+ debhelper-compat (= 13),
+ libcups2-dev,
+ libdbus-1-dev,
+ perl,
+ pkg-config,
+ po-debconf
+Homepage: https://wiki.linuxfoundation.org/openprinting/start
+Vcs-Git: git://jff.email/opt/git/foomatic-filters.git
+Vcs-Browser: https://jff.email/cgit/foomatic-filters.git
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+
+Package: foomatic-filters
+Architecture: any
+Pre-Depends: bash (>= 2.05)
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ucf (>= 0.30)
+Recommends:
+ cups-client | lpr | lprng | rlpr,
+ ghostscript,
+ paps | cups | enscript | a2ps,
+ poppler-utils (>= 0.11.2),
+ colord
+Description: OpenPrinting printer support - filters
+ Foomatic is a printer database designed to make it easier to set up
+ common printers for use with UNIX-like operating systems.
+ It provides the "glue" between a print spooler (like CUPS or lpr) and
+ the printer, by processing files sent to the printer.
+ .
+ This package consists of filters used by the printer spoolers
+ to convert the incoming PostScript data into the printer's native
+ format using a printer-specific, but spooler-independent PPD file.
+ .
+ For use with CUPS, you will need both the cups and cups-client
+ packages installed on your system.
+
+Package: foomatic-filters-beh
+Architecture: all
+Breaks: foomatic-filters (<< 4.0.17-8)
+Replaces: foomatic-filters (<< 4.0.17-8)
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: Openprinting Backend error handler
+ Foomatic is a printer database designed to make it easier to set up
+ common printers for use with UNIX-like operating systems.
+ It provides the "glue" between a print spooler (like CUPS or lpr) and
+ the printer, by processing files sent to the printer.
+ .
+ This package contains the backend error handler.

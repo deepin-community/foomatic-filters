@@ -1,0 +1,74 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: foomatic-filters
+Upstream-Contact:  Mailinglist <printing-foomatic@lists.linux-foundation.org>
+Source: https://www.openprinting.org/download/foomatic/
+
+Files: *
+Copyright: 2008-2015 Till Kamppeter <till.kamppeter@gmail.com>
+           2008      Lars Uebernickel <larsuebernickel@gmx.de>
+License: GPL-2.0+
+
+Files: test/tcm.sh
+       test/tetapi.sh
+Copyright: 1990 X/Open Company Limited (X/Open)
+           1996 X/Open Company Limited / owners
+           1990 Unix International (UI)
+           1990 Open Software Foundation (OSF)]
+License: MIT
+
+Files: test/shfuncs.sh
+       test/lsbfuncs.sh
+Copyright: 1998-2001 The Open Group / owners
+License: GPL-2.0+
+
+Files: debian/*
+Copyright: 2003      Chris Lawrence <lawrencc@debian.org>
+           2014-2018 Jörg Frings-Fürst <debian@jff.email>
+License: GPL-2.0+
+
+License: GPL-2.0+
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: MIT
+ All rights reserved.  No part of this source code may be reproduced,
+ stored in a retrieval system, or transmitted, in any form or by any
+ means, electronic, mechanical, photocopying, recording or otherwise,
+ except as stated in the end-user licence agreement, without the prior
+ permission of the copyright owners.
+ .
+ Permission to use, copy, modify, and distribute this software and its
+ documentation for any purpose and without fee is hereby granted, provided
+ that the above copyright notice appear in all copies and that both that
+ copyright notice and this permission notice appear in supporting
+ documentation, and that the name of OSF, UI or X/Open not be used in
+ advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission.  OSF, UI and X/Open make
+ no representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+ .
+ OSF, UI and X/Open DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+ INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+ EVENT SHALL OSF, UI or X/Open BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+ CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF
+ USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ PERFORMANCE OF THIS SOFTWARE.

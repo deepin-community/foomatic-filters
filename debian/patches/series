@@ -1,0 +1,6 @@
+0105-ppd_trailing_whitespace.patch
+0100-pdf_header.patch
+0600-spelling-errors.diff
+0110-fixed-segfault-when-creating-logfile.patch
+0001-paps.patch
+0500-r7406_also_consider_the_back_tick_as_an_illegal_shell_escape_character.patch

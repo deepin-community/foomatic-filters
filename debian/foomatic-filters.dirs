@@ -1,0 +1,8 @@
+etc/foomatic
+usr/bin
+usr/sbin
+usr/share/foomatic
+usr/share/man/man1
+usr/share/man/man8
+usr/lib/ppr/interfaces
+usr/lib/ppr/lib

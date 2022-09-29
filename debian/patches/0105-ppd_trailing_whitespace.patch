@@ -1,0 +1,24 @@
+Description: remove trailing whitespaces from ppd files
+ Remove trailing whitespaces from ppd file to prevent segfault
+Author: Jörg Frings-Fürst <debian@jff-webhosting.net>
+Bug: https://bugs.linuxfoundation.org/show_bug.cgi?id=1227
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=758133
+Forwarded: https://bugs.linuxfoundation.org/show_bug.cgi?id=1227
+Last-Update: 2014-08-23
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/options.c
+===================================================================
+--- trunk.orig/options.c	2014-08-17 09:56:36.990949026 +0200
++++ trunk/options.c	2014-08-17 09:59:43.750779956 +0200
+@@ -1628,6 +1628,10 @@
+         /* remove last newline */
+         dstrremovenewline(value);
+ 
++        /* remove last whitespace */
++        /* new 2014-08-17         */
++        dstrtrim_right(value);
++
+         /* process key/value pairs */
+         if (strcmp(key, "NickName") == 0) {
+             unhtmlify(printer_model, 256, value->data);

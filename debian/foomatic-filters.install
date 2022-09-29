@@ -1,0 +1,8 @@
+etc/foomatic
+etc/foomatic/direct
+usr/bin
+usr/lib/cups/filter
+usr/lib/ppr/interfaces
+usr/lib/ppr/lib
+#usr/sbin
+
